@@ -1,31 +1,58 @@
-The Duke's — Landing (Splash) + Menu PDF
-=========================================
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Duke’s</title>
+  <meta name="theme-color" content="#0d1b52" />
+  <style>
+    :root { --dukes: #0d1b52; }
+    body {
+      margin: 0;
+      height: 100vh;
+      background: var(--dukes);
+      display: flex;
+      align-items: center;   /* Centrage vertical */
+      justify-content: center; /* Centrage horizontal */
+      flex-direction: column;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: #fff;
+    }
+    .logo {
+      max-width: 320px;   /* taille max */
+      width: 70vw;        /* responsive */
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,.4));
+      animation: fadein 800ms ease-out both;
+    }
+    .hint {
+      margin-top: 18px;
+      font-size: 16px;
+      opacity: .85;
+    }
+    @keyframes fadein {
+      from { opacity: 0; transform: scale(0.95); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+  </style>
+  <script>
+    // Réglages
+    const REDIRECT_TO = "./menu.pdf#view=FitH"; // chemin vers la carte
+    const DELAY_MS = 2500; // délai (2,5s)
 
-Contenu du dossier :
-- index.html   → page d'accueil (logo + redirection automatique)
-- logo.png     → logo affiché en grand
-- menu.pdf     → votre carte (PDF) ouverte après 2,5 s
+    window.addEventListener("load", () => {
+      setTimeout(() => { window.location.href = REDIRECT_TO }, DELAY_MS);
+    });
+  </script>
+</head>
+<body>
+  <img src="./logo.png" class="logo" alt="The Duke’s" />
+  <div class="hint">Chargement du menu…</div>
 
-Hébergement (3 options simples) :
-1) Netlify Drop (le plus simple)
-   - Ouvrez https://app.netlify.com/drop
-   - Glissez le dossier 'dukes-landing' sur la page
-   - Netlify vous donne une URL publique (ex. https://votre-site.netlify.app)
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=./menu.pdf#view=FitH" />
+  </noscript>
+</body>
+</html>
 
-2) GitHub Pages
-   - Créez un dépôt vide, uploadez index.html, logo.png, menu.pdf
-   - Dans Settings → Pages, sélectionnez 'Branch: main' et 'root'
-   - L’URL publique est générée en quelques secondes
-
-3) Votre hébergeur / FTP
-   - Uploadez le dossier tel quel sur votre hébergement
-   - L’URL publique sera similaire à https://votredomaine/dukes-landing/
-
-Générer un QR code :
-- Utilisez l’URL publique de la page index.html (pas celle du PDF).
-- Exportez le QR en PNG 300 dpi ou en SVG pour l’impression grand format.
-
-Astuces :
-- Pour changer le délai, modifiez DELAY_MS dans index.html (ex. 1500 pour 1,5 s).
-- Pour un fond différent, remplacez la variable CSS --dukes dans <style>.
-- Pour afficher un bouton seulement (sans redirection auto), supprimez le script dans <head>.

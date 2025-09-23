@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menu — The Duke’s</title>
+  <meta name="theme-color" content="#0d1b52" />
+  <style>
+    :root { --dukes:#0d1b52 }
+    * { box-sizing: border-box }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:#0b1645; color:#fff }
+    header {
+      position: sticky; top:0; background: var(--dukes);
+      display:flex; align-items:center; gap:12px; padding:10px 14px; z-index: 10;
+      
+    }
+    header img { height:36px; width:auto; border-radius:999px }
+    header .title { font-weight:700 }
+    main { padding: 14px; display:grid; gap:14px }
+    .page {
+    max-width: 95%;
+    border-radius: 14px;
+    
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    }
+    .btn { background:#fff; color:var(--dukes); border:none; border-radius:999px; padding:10px 14px; font-weight:700; text-decoration:none; margin-left:auto }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="./logo.png" alt="The Duke’s" />
+    <div class="title">La Carte — The Duke’s</div>
+    <a class="btn" href="./index.html">Accueil</a>
+  </header>
+  
+  <main>
+    <img class="page" src="./Page1.png" alt="Carte page 1" />
+    <img class="page" src="./Page3.png" alt="Carte page 3" />
+    <img class="page" src="./Page4.png" alt="Carte page 4" />
+    <img class="page" src="./Page2.png" alt="Carte page 2" />
+  </main>
+
+</body>
+</html>
